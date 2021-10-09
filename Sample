@@ -16,3 +16,26 @@ if(e.KeyCode == Keys.F6)
                 RD_Cash.Select();
             }
 		
+
+
+	 private void BTN_CSV_Click(object sender, EventArgs e)
+        {
+            if (DGW_View.Rows.Count > 0)
+            {
+                Microsoft.Office.Interop.Excel.Application XcelApp = new Microsoft.Office.Interop.Excel.Application();
+                XcelApp.Application.Workbooks.Add(Type.Missing);
+                for (int i = 1; i < DGW_View.Columns.Count + 1; i++)
+                {
+                    XcelApp.Cells[1, i] = DGW_View.Columns[i - 1].HeaderText;
+                }
+                for (int i = 0; i < DGW_View.Rows.Count; i++)
+                {
+                    for (int j = 0; j < DGW_View.Columns.Count; j++)
+                    {
+                        XcelApp.Cells[i + 2, j + 1] = DGW_View.Rows[i].Cells[j].Value.ToString();
+                    }
+                }
+                XcelApp.Columns.AutoFit();
+                XcelApp.Visible = true;
+            }
+        }
