@@ -1,0 +1,18 @@
+if(e.KeyCode == Keys.F6)
+            {
+                DGW_Bill.Rows.Clear();
+            }
+            if (e.KeyCode == Keys.F7)
+            {
+                
+            }
+
+              if (e.KeyCode == Keys.F8)
+            {
+                RD_Card.Select();
+            }
+              if (e.KeyCode == Keys.F9)
+            {
+                RD_Cash.Select();
+            }
+		
